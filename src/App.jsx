@@ -18,4 +18,28 @@
 // export default App
 
 
+//REACT LYFECYCLE EVENTS
 
+
+import React, { useState, useEffect } from "react";
+
+function MyComponent() {
+  const [count, setCount] = useState(0);
+
+  // Runs on mount and updates
+  useEffect(() => {
+    console.log("Effect: Runs after render.");
+    return () => {
+      console.log("Cleanup: Runs before next effect or unmount.");
+    };
+  }, [count]); // Dependency array: runs effect only when `count` changes.
+
+  return (
+    <div>
+      <h1>Count: {count}</h1>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  );
+}
+
+export default MyComponent;
