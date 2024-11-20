@@ -1,45 +1,30 @@
-//LIST AND KEYS  -------------------------->
+import React from 'react'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import Home from './components/Home'
+import Contact from './components/Contact'
+import About from './components/About'
 
-// function App() {
+const appRouter = createBrowserRouter([
+    {
+        path:'/',
+        element:<Home/>
+    },
+    {
+        path:'/contact',
+        element:<Contact/>
+    },
+    {
+        path:'/about',
+        element:<About/>
+    }
+])
 
-//   const items = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
-
-//   return (
-//     <>
-//       {
-//         items.map((item, index) => (
-//           <h1 key={index}>{item}</h1>
-//         ))
-//       }
-//     </>
-//   )
-// }
-
-// export default App
-
-
-//REACT LYFECYCLE EVENTS
-
-
-import React, { useState, useEffect } from "react";
-
-function MyComponent() {
-  const [count, setCount] = useState(0);
-
-  // Runs on mount and updates
-  useEffect(() => {
-    console.log("Effect: Runs after render.");
-    return () => {
-      console.log("Cleanup: Runs before next effect or unmount.");
-    };
-  }, [count]); // Dependency array: runs effect only when `count` changes.
-
+function App() {
   return (
-    <div>
-      <h1>Count: {count}</h1>
-      <button onClick={() => setCount(count + 1)}>Increment</button>
-    </div>
-  );
+    <>
+        <RouterProvider router={appRouter}/>
+    </>
+  )
 }
 
-export default MyComponent;
+export default App
