@@ -5,7 +5,9 @@ function Home() {
   return (
     <>
         <Navbar/>
-        
+        <div className='flex justify-center items-center'>
+            <h1 className='text-7xl'>I am Ashirwad</h1>
+        </div>
     </>
   )
 }
